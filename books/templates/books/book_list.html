@@ -1,0 +1,30 @@
+
+
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body class="container-fluid text-center">
+        <div class="row  text-center">
+            <h2 class="col-12 bg-primary text-white"><a href="{% url 'books:books_list' %}" class='text-white'>Books</a></h2>
+            <div class=" col-12 wrapper">
+                <ul class="list-unstyled">
+                    {% for  books in object_list %}
+                    <li> <br> {{ books.name }}  ({{ books.pages }} Pages) 
+                    <button class="btn btn-warning" onclick="location.href='{% url 'books:books_edit' books.id %}'" type="button">Edit</button>
+                    <button class="btn btn-danger" onclick="location.href='{% url 'books:books_delete' books.id %}'" type="button">Delete</button>
+                    
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <br>
+        
+        <button class="btn btn-success" onclick="location.href='{% url 'books:books_new' %}'" type="button">Add New Button</button>
+        
+</body>
+
